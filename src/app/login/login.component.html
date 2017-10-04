@@ -1,0 +1,13 @@
+<form #loginForm="ngForm" ((ngSubmit)="submit()" >
+  <div class="form-group">
+    <label for="txtusername" class="lbl">Username</label>
+    <input required minlength="3" maxlength="10" ngModel name="username" #username="ngModel" type="text" class="txtbox" id="txtusername">
+    <div class="alert alert-danger" *ngIf="username.touched && username.errors.required">* Firstname is required</div>
+    <div class="alert alert-danger" *ngIf="username.touched && username.errors.minlength">* Firstname minLength is 3</div>
+    <br>
+    <label for="txtPassword" class="lbl">Password</label>
+    <input type="text" class="txtbox txtpswd" id="txtPassword">
+    <button [disabled]="loginForm.valid">submit</button>
+
+  </div>
+</form>
