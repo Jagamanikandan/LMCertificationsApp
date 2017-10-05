@@ -1,6 +1,7 @@
 import { AppPage } from './app.po';
 
 describe('lm-certifications App', () => {
+
   let page: AppPage;
 
   beforeEach(() => {
