@@ -2,11 +2,11 @@
 <label id="user">Username</label>
 
 <input required minlength= "5" maxlength="7" ngModel  name="username" #username="ngModel"   type="text" class="txtbox" id="txtusername">
-<div class="alert alert-danger" *ngIf=" username.touched && username.errors.required">* Username is required</div>
-<div class="alert alert-danger" *ngIf=" username.errors.minlength">* Invalid Username</div>
+<div class="alert alert-danger" *ngIf=" username.touched && username.errors?.required">* Username is required</div>
+<div class="alert alert-danger" *ngIf=" username.errors?.minlength">* Invalid Username</div>
 <label id="pwd">Password</label>
 <input required ngModel name="password" #password="ngModel" type="password" class="txtbox txtpswd" id="txtPassword">
-<div class="alert alert-danger" *ngIf=" password.touched && password.errors.required">* Password is required</div>
+<div class="alert alert-danger" *ngIf=" password.touched && password.errors?.required">* Password is required</div>
 <input type="checkbox" id="check" name="check"><label id="msg">Keep me logged in</label>
 <input type="submit" id="smbt" Value="Login">
 </form>
@@ -17,6 +17,9 @@
 </div>
 
 <form ngForm name="userRegistrationFrom" #userRegistrationFrom="ngForm" id="container2" *ngIf="isNewUser && !isLoggedIn" (ngSubmit)="registerNewuser()">
+    <h1>
+        Create your own Account
+    </h1>
 <label>Employee Number</label>
 <input type="Number" name="empnum">
 <label>Employee Name</label>
@@ -39,6 +42,6 @@
 </select>
 <br>
  <input type="submit" value="Register"  name="register">
+ <a href="#" class="link">Already registered?</a>
 </form>
-
 <app-home *ngIf="isLoggedIn"></app-home>

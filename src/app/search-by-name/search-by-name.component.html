@@ -1,0 +1,15 @@
+<div></div><br>
+<form ngForm name="searchByNameForm" #searchByNameForm="ngForm" (ngSubmit)="getCertificatesByName(employeeId)" >
+    <label>Employee Number</label>
+    <input type="Number" name="employeeId"><br><br>
+    <label>Employee Name</label>
+    <input type="textbox" name="employeeName"><br>
+    <input type="submit" value="Search"  name="search">
+</form>
+<div *ngIf= "notempty">
+<ul>
+  <li *ngFor="let list of certificateList">Certificate Name: {{ list.name }} Date: {{ list.completionDate }} Mode: {{ list.cerertificationMode }} 
+  </li> 
+</ul>
+</div>
+

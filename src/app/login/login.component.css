@@ -149,3 +149,11 @@ input[type=button]
 .alert-danger{
 	color: red;
 }
+
+h1{
+	font-family: arial, sans-serif;
+	font-size: 18px;
+    font-weight: normal;
+	margin: 0 0 .92em;
+	text-align: center;
+}
