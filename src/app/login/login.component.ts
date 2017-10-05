@@ -7,8 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+		isNewUser = false;
+    isLoggedIn = false;
+  		constructor() { }
 
-  ngOnInit() {
+  		ngOnInit() {
   }
+  
+  onSubmit() {
+  this.isLoggedIn = true;
+  console.log("I am new user");
+  }
+
+  onClick(){
+  this.isNewUser = true;
+  }
+
+  registerNewuser(){
+  this.isLoggedIn = true;
+  console.log("I am new user");
+
+  }
+
 }
+
+

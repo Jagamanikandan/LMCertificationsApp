@@ -1,13 +1,44 @@
-<form #loginForm="ngForm" ((ngSubmit)="submit()" >
-  <div class="form-group">
-    <label for="txtusername" class="lbl">Username</label>
-    <input required minlength="3" maxlength="10" ngModel name="username" #username="ngModel" type="text" class="txtbox" id="txtusername">
-    <div class="alert alert-danger" *ngIf="username.touched && username.errors.required">* Firstname is required</div>
-    <div class="alert alert-danger" *ngIf="username.touched && username.errors.minlength">* Firstname minLength is 3</div>
-    <br>
-    <label for="txtPassword" class="lbl">Password</label>
-    <input type="text" class="txtbox txtpswd" id="txtPassword">
-    <button [disabled]="loginForm.valid">submit</button>
+<form *ngIf=" ! isNewUser && ! isLoggedIn " id="container" ngForm name="loginForm" #loginForm="ngForm" (ngSubmit)=" onSubmit(loginForm) ">
+<label id="user">Username</label>
 
-  </div>
+<input required minlength= "5" maxlength="7" ngModel  name="username" #username="ngModel"   type="text" class="txtbox" id="txtusername">
+<div class="alert alert-danger" *ngIf=" username.touched && username.errors.required">* Username is required</div>
+<div class="alert alert-danger" *ngIf=" username.errors.minlength">* Invalid Username</div>
+<label id="pwd">Password</label>
+<input required ngModel name="password" #password="ngModel" type="password" class="txtbox txtpswd" id="txtPassword">
+<div class="alert alert-danger" *ngIf=" password.touched && password.errors.required">* Password is required</div>
+<input type="checkbox" id="check" name="check"><label id="msg">Keep me logged in</label>
+<input type="submit" id="smbt" Value="Login">
 </form>
+
+<div *ngIf="!isNewUser && !isLoggedIn" id="container1">
+<label id="msg1">Don't have account?</label>
+<input type="button" id="reg" name="btn" value="Register" (click)="onClick()">
+</div>
+
+<form ngForm name="userRegistrationFrom" #userRegistrationFrom="ngForm" id="container2" *ngIf="isNewUser && !isLoggedIn" (ngSubmit)="registerNewuser()">
+<label>Employee Number</label>
+<input type="Number" name="empnum">
+<label>Employee Name</label>
+<input type="textbox" name="empname">
+<label>Email</label>
+<input type="textbox" name="empmail" placeholder="abc@abc.com">
+<label>Password</label>
+<input type="Password" name="pwd" placeholder="(maximum 6 characters)">
+<label>Confirm Password</label>
+<input type="Password" name="confirmpwd" placeholder="(Re-enter password)">
+<label>Date of Joining</label>
+<input type="Date" name="date">
+<label>Role</label>
+<select id="list">
+<option value="gp">Select</option>
+<option value="gp">Group Lead</option>
+<option value="ld">L&D Spoc</option>
+<option value="tl">Team Lead</option>
+<option value="tm">Team Member</option>
+</select>
+<br>
+ <input type="submit" value="Register"  name="register">
+</form>
+
+<app-home *ngIf="isLoggedIn"></app-home>
