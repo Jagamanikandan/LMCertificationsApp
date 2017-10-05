@@ -5,6 +5,7 @@
 	height: 610px;
 	background: #fff;
 	float: certer;
+	z-index: 10;
 }
 
 form

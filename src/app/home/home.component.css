@@ -34,6 +34,7 @@ li:hover ul{
     display:block;
     background:black;
 height:auto; width:12em; 
+z-index: 30;
 }
 
 li ul li{
