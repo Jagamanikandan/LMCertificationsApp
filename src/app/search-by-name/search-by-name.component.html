@@ -6,8 +6,11 @@
     <input type="textbox" name="employeeName"><br>
     <input type="submit" value="Search"  name="search">
 </form>
+
 <div *ngIf= "notempty">
+	
 <ul>
+<h5 ngModel>Certification Details of {{ employeeId }}</h5>
   <li *ngFor="let list of certificateList">Certificate Name: {{ list.name }} Date: {{ list.completionDate }} Mode: {{ list.cerertificationMode }} 
   </li> 
 </ul>

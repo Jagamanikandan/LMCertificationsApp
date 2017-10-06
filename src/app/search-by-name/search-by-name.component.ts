@@ -11,14 +11,14 @@ export class SearchByNameComponent implements OnInit {
   employeeId: string;
   notempty = false;
   certificateList: certificate[];
-  constructor( private data: certficateMockData) {
-    this.certificateList = data.getlist();
+  constructor( public data: certficateMockData) {
    }
   ngOnInit() {
   }
 
   getCertificatesByName(employeeId: string): void {
     this.notempty = true;
+    this.certificateList = this.data.getlist();
 }
 }
 
