@@ -1,8 +1,11 @@
+// Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
+// App Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +31,7 @@ import { certficateMockData } from './search-by-name/search-by-name.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: 'app-login',
