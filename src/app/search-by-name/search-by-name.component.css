@@ -80,7 +80,15 @@ table
 {
 	width: 800px;
 	border-collapse: collapse;
-	border-style: none;
+    border-style: solid;
+    border-width: 1px;
+}
+
+caption{
+    float: left;
+    font-size: 20px;
+    color: #030303;
+    background-color: #4caf50;
 }
 
 table th

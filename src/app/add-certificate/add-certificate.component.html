@@ -7,21 +7,13 @@
 <input type="text" name="empname" required> <br>
 <label>Certification Name</label>
 <select id="list" required>
-<option value="gp">Select</option>
-<option value="ocjp">OCJP</option>
-<option value="hp">HP-UFT</option>
-<option value="istq">ISTQB</option>
-<option value="ins21">INS21</option>
-<option value="ins22">INS22</option>
-<option value="ins23">INS23</option>
+<option *ngFor="let certificate of certificateNameList" value="gp">{{ certificate }}</option>
 </select>  <br>
 
 <label>Mode of Certification</label>
 <select id="list" required>
 <option value="gp">Select</option>
-<option value="external">External</option>
-<option value="tcs">TCS-Internal</option>
-<option value="ion">iON Platform</option>
+<option *ngFor="let mode of certificateModeList">{{ mode }}</option>
 </select>   <br>
 <label>Completed On</label>
 <input type="Date" name="date" required> <br><br>

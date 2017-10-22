@@ -14,7 +14,7 @@ import { AddCertificateComponent } from './add-certificate/add-certificate.compo
 import { ViewCertificateComponent } from './view-certificate/view-certificate.component';
 import { SearchByNameComponent } from './search-by-name/search-by-name.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { certficateMockData } from './search-by-name/search-by-name.service';
+import { certficatesService } from './search-by-name/search-by-name.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { certficateMockData } from './search-by-name/search-by-name.service';
     HttpModule,
     RouterModule.forRoot([
       {
-        path: 'app-login',
+        path: 'login',
         component: LoginComponent
       },
       {
@@ -50,13 +50,16 @@ import { certficateMockData } from './search-by-name/search-by-name.service';
         component: SearchByNameComponent
       },
       {
-        path: 'app-home',
-        component: HomeComponent
+        path: 'home',
+        component: HomeComponent,
+        children: [
+          { path: 'welcome', redirectTo: 'welcome', pathMatch: 'full' },
+        ]
       },
     ])
   ],
   providers: [
-    certficateMockData,
+    certficatesService,
   ],
   bootstrap: [AppComponent]
 })
