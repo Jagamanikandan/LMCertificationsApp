@@ -22,8 +22,6 @@ export class SearchByNameComponent implements OnInit {
   certificateModeId: any;
   certificateNameId: any;
 
-  numbers = new RegExp(/^[0-9]+$/);
-
   private empSearch = new Subject<string>();
   constructor(
     private http: Http,
@@ -36,27 +34,12 @@ export class SearchByNameComponent implements OnInit {
   ngOnInit() {
   }
 
-  // getCertificates(empId: string): void {
-//  this.notempty = true;
-//    this.employeeId = empId;
- //   empId = '123456';
- //   this.certificateList = this.service.getCertificatesByEmpId(empId).json();
-// }
-
   getCertificatesList(employee: HTMLInputElement): void {
-    if (this.numbers.test(employee.value)) {
-    this.http.get('http://localhost:8082/LMCertificationsApi/service/certificate/getCertificatesByEmpId/' + employee.value )
+    this.http.get('http://localhost:8082/LMCertificationsApi/service/certificate/getCertificatesByEmployee/' + employee.value )
     .subscribe(response => {
     this.certificateList = response.json();
     this.empSearchCount = this.certificateList.length;
      });
-  } else {
-    this.http.get('http://localhost:8082/LMCertificationsApi/service/certificate/getCertificatesByEmpName/' + employee.value )
-    .subscribe(response => {
-    this.certificateList = response.json();
-    this.empSearchCount = this.certificateList.length;
-     });
-  }
   }
 
   search(empName: string): void {

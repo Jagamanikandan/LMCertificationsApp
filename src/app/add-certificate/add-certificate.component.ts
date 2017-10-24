@@ -14,6 +14,8 @@ export class AddCertificateComponent implements OnInit {
   certificateNameId: any;
   certificateNameList: string[];
   certificateModeList: string[];
+  apiUrl = 'http://localhost:8082/LMCertificationsApi/service/certificate';
+  response: any;
 
   constructor(
     private http: Http,
@@ -28,4 +30,38 @@ export class AddCertificateComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(employeeId: HTMLInputElement,
+    employeeName: HTMLInputElement,
+    // certificationName: HTMLInputElement,
+    // certificationMode: HTMLInputElement,
+    completedOn: HTMLInputElement,
+    score: HTMLInputElement,
+    grade: HTMLInputElement,
+    status: HTMLInputElement) {
+    console.log(this.apiUrl + '/addNewCertificate/' +
+            employeeId.value + '/' +
+             employeeName.value + '/' +
+             // this.certificateNameId[certificationName.value] + '/' +
+             // this.certificateModeId[certificationMode.value] + '/' +
+             '10111/' +
+             '10/' +
+             completedOn.value + '/' +
+             score.value + '/' +
+             grade.value + '/' +
+             status.value);
+    this.http.get(this.apiUrl + '/addNewCertificate/' +
+             employeeId.value + '/' +
+              employeeName.value + '/' +
+              // this.certificateNameId[certificationName.value] + '/' +
+              // this.certificateModeId[certificationMode.value] + '/' +
+              '10111/' +
+              '10/' +
+              completedOn.value + '/' +
+              score.value + '/' +
+              grade.value + '/' +
+              status.value )
+            .subscribe(response => {
+            this.response = response;
+             });
+  }
 }

@@ -1,22 +1,28 @@
 <div id="container">
     <h3>Add Certification Details</h3>
-<form>
+<form (ngSubmit)="onSubmit(employeeId, employeeName, certificationName, score, grade, status)" >
 <label>Employee Number</label>
-<input type="text" name="empnum" required> <br>
+<input type="text" name="empnum" required #employeeId> <br>
 <label>Employee Name</label>
-<input type="text" name="empname" required> <br>
+<input type="text" name="empname" required #employeeName> <br>
 <label>Certification Name</label>
-<select id="list" required>
+<select id="list" required #certificationName>
 <option *ngFor="let certificate of certificateNameList" value="gp">{{ certificate }}</option>
 </select>  <br>
-
 <label>Mode of Certification</label>
-<select id="list" required>
+<select id="list" required #certificationMode>
 <option value="gp">Select</option>
 <option *ngFor="let mode of certificateModeList">{{ mode }}</option>
 </select>   <br>
 <label>Completed On</label>
-<input type="Date" name="date" required> <br><br>
+<input type="Date" name="date" required #completedOn> 
+<label>Score</label>
+<input type="text" name="score" required #score> <br>
+<label>Grade</label>
+<input type="text" name="grade" required #grade> <br>
+<label>Status</label>
+<input type="text" name="status" required #status> <br>
+<br><br>
 <input type="Button" value="Submit"  name="submit"> <input type="Reset" Value="Reset" name="reset">
 </form>
 </div>
