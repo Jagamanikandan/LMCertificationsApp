@@ -20,9 +20,9 @@
   <th>Edit Details</th>
   </tr>
   <tr *ngFor="let list of certificateList">
-  <td>{{ certificateNameId[list.CertificationId] }}</td>
+  <td>{{ list.CertificationId }}</td>
   <td>{{ list.CompletedOn }}</td>
-  <td>{{ certificateModeId[list.CertificationMode] }}</td>
+  <td>{{ list.CertificationMode }}</td>
   <td>{{ list.Score }}</td>
   <td>{{ list.Grade }}</td>
   <td>{{ list.Status }}</td>

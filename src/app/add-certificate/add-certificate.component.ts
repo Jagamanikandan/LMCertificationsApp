@@ -32,19 +32,18 @@ export class AddCertificateComponent implements OnInit {
 
   onSubmit(employeeId: HTMLInputElement,
     employeeName: HTMLInputElement,
-    // certificationName: HTMLInputElement,
-    // certificationMode: HTMLInputElement,
-    completedOn: HTMLInputElement,
+     certificationName: HTMLInputElement,
+     certificationMode: HTMLInputElement,
+     completedOn: HTMLInputElement,
     score: HTMLInputElement,
     grade: HTMLInputElement,
-    status: HTMLInputElement) {
+    status: HTMLInputElement): void {
+      console.log(certificationName.value),
     console.log(this.apiUrl + '/addNewCertificate/' +
             employeeId.value + '/' +
              employeeName.value + '/' +
-             // this.certificateNameId[certificationName.value] + '/' +
-             // this.certificateModeId[certificationMode.value] + '/' +
-             '10111/' +
-             '10/' +
+             certificationName.value + '/' +
+             certificationMode.value + '/' +
              completedOn.value + '/' +
              score.value + '/' +
              grade.value + '/' +
@@ -52,10 +51,8 @@ export class AddCertificateComponent implements OnInit {
     this.http.get(this.apiUrl + '/addNewCertificate/' +
              employeeId.value + '/' +
               employeeName.value + '/' +
-              // this.certificateNameId[certificationName.value] + '/' +
-              // this.certificateModeId[certificationMode.value] + '/' +
-              '10111/' +
-              '10/' +
+              certificationName.value + '/' +
+              certificationMode.value + '/' +
               completedOn.value + '/' +
               score.value + '/' +
               grade.value + '/' +
@@ -63,5 +60,14 @@ export class AddCertificateComponent implements OnInit {
             .subscribe(response => {
             this.response = response;
              });
+
+             employeeId.value = '';
+             employeeName.value = '';
+             certificationName.value = '';
+             certificationMode.value = '';
+             completedOn.value = '';
+             score.value = '';
+             grade.value = '';
+             status.value = '';
   }
 }

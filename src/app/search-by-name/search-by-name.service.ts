@@ -8,33 +8,33 @@ export class certficatesService {
   ceretificateMockList: certificate[];
   certificateList: any;
 
-  certificateModeId = {
-    '10': 'External',
-    '11': 'Interal',
-    '12': 'iON Platform'
-  };
+  certificateModeId = [
+    {'code': '10', 'name': 'External'},
+    {'code': '11', 'name': 'Interal'},
+    {'code': '12', 'name': 'iON Platform'}
+  ];
 
-  certificateNameId = {
-    '10111': 'Amazon Web Services (AWS Certified Developer)',
-    '10112': 'Microsoft Certified Solutions Developer (MCSD)',
-    '10113': 'MongoDB Certified Developer Associate',
-    '10211': 'Selenium',
-    '10212': 'SoapUI',
-    '10311': 'SAFe Agilist',
-    '10312': 'Certified Scrum Master',
-    '10411': 'INS 21',
-    '10412': 'INS 22',
-    '10413': 'INS 23',
-    '10213': 'Cucumber BDD',
-    '20111': 'REST Service',
-    '20112': 'Java',
-    '20211': 'SOA Testing',
-    '20212': 'Test Automation',
-    '20311': 'Lean Six Sigma',
-    '30111': 'AngularJs',
-    '30112': 'MongoDB',
-    '30113': 'ReactJS',
-  } ;
+  certificateNameId = [
+    {'code': '10111', 'name': 'Amazon Web Services (AWS Certified Developer)'},
+    {'code': '10112', 'name': 'Microsoft Certified Solutions Developer (MCSD)'},
+    {'code': '10113', 'name': 'MongoDB Certified Developer Associate'},
+    {'code': '10211', 'name': 'Selenium'},
+    {'code': '10212', 'name': 'SoapUI'},
+    {'code': '10311', 'name': 'SAFe Agilist'},
+    {'code': '10312', 'name': 'Certified Scrum Master'},
+    {'code': '10411', 'name': 'INS 21'},
+    {'code': '10412', 'name': 'INS 22'},
+    {'code': '10413', 'name': 'INS 23'},
+    {'code': '10213', 'name': 'Cucumber BDD'},
+    {'code': '20111', 'name': 'REST Service'},
+    {'code': '20112', 'name': 'Java'},
+    {'code': '20211', 'name': 'SOA Testing'},
+    {'code': '20212', 'name': 'Test Automation'},
+    {'code': '20311', 'name': 'Lean Six Sigma'},
+    {'code': '30111', 'name': 'AngularJs'},
+    {'code': '30112', 'name': 'MongoDB'},
+    {'code': '30113', 'name': 'ReactJS'}
+  ];
 
 
   certificateMockList = [

@@ -21,6 +21,8 @@ export class SearchByNameComponent implements OnInit {
   certificateList: any;
   certificateModeId: any;
   certificateNameId: any;
+  certificateNameList: string[];
+  certificateModeList: string[];
 
   private empSearch = new Subject<string>();
   constructor(
@@ -29,6 +31,8 @@ export class SearchByNameComponent implements OnInit {
   ) {
     this.certificateModeId = dataService.certificateModeId;
     this.certificateNameId = dataService.certificateNameId;
+    this.certificateNameList = Object.keys(this.certificateNameId).map((key) => this.certificateNameId[key]) ;
+    this.certificateModeList = Object.keys(this.certificateModeId).map((key) => this.certificateModeId[key]) ;
   }
 
   ngOnInit() {
