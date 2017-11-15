@@ -1,0 +1,205 @@
+table
+{
+	width: 1000px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	background-color: inherit;
+}
+
+th,td
+{
+	padding: 5px;
+	text-align: center;
+	background-color: inherit;
+}
+
+input[type=button], input[type=Submit]
+{
+	float: left;
+	margin-left: 65px;
+	width: 70px;
+	height: 35px;
+	font-size: 10px;
+	font-weight: bold;
+	color: black;
+	background-color: lightblue;
+	border-radius: 10px;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.3), 0 1px 0 rgba(255,255,255,.5);
+	cursor: pointer;
+}
+
+tr{
+
+	border-width: 1px;
+	text-align: center;
+	height: 60px;
+	background-color: inherit;
+}
+
+.viewcert{
+	width: 1000px;
+	background-color:inherit;
+	height: 300px;
+}
+
+.editcert{
+	height: 340px;
+}
+
+ul{
+	width: 1000px;
+	padding: 0px;
+	margin: 0px;
+	background-color: inherit;
+}
+
+li{
+	list-style-type: none;
+	width: 1000px;
+	padding: 0px;
+	margin: 0px;
+	background-color: inherit;
+}
+
+
+form
+{
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+label
+{
+	color: black;
+	display: inline-block;
+	margin-left: 18px;
+	padding-top: 10px;
+	font-size: 14px;
+	height: 35px; 
+	width: 150px;
+}
+
+input[type=text]
+{
+	color: #777;
+	padding-left: 10px;
+	margin: 10px;
+	margin-top: 12px;
+	margin-left: 18px;
+	width: 230px;
+	height: 35px; 
+	border: 1px solid #c7d0d2;
+	border-radius: 10px;
+	box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+
+input[type=submit], input[type=reset], input[type=button]
+{
+	margin-right: 25px;
+	margin-top: 20px;
+	width: 100px;
+	height: 35px;
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+	background-color: orange;
+	border-radius: 10px;
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.3), 0 1px 0 rgba(255,255,255,.5);
+	cursor: pointer;
+}
+
+input[name=btnDelete]{
+
+	width: 250px;
+	float: right;
+}
+
+
+input[type=date]
+{
+color: #777;
+background: url(//calendar.png);
+background-repeat: no-repeat;
+background-size: 7%;
+padding-left: 10px;
+background-position: right;
+margin: 10px;
+margin-top: 12px;
+margin-left: 18px;
+width: 230px;
+height: 35px; 
+border: 1px solid #c7d0d2;
+border-radius: 10px;
+box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+
+
+::-webkit-calendar-picker-indicator
+{
+color: rgba(0,0,0,0);
+opacity: -5;
+}
+::-webkit-calendar-picker-indicator::after
+{
+content: '';
+display: block;
+background: url(//calendar.png);
+background-size: 10%;
+width: 100px;
+height: 100px;
+position: absolute;
+transform: translate(-2%);
+}
+
+#list
+{
+	color: #777;
+	padding-left: 10px;
+	margin: 10px;
+	margin-top: 12px;
+	margin-left: 18px;
+	width: 240px;
+	height: 35px;
+	border: 1px solid #c7d0d2;
+	border-radius: 10px;
+	box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+
+li:nth-child(even) {
+    background-color: #c4bdbd;
+}
+
+li:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table
+{
+	width: 1000px;
+	border-collapse: collapse;
+	table-layout: fixed
+}
+
+table th
+{
+	background-color: #4caf50;
+	color: white;
+}
+
+th,td
+{
+	padding: 5px;
+	text-align: center;
+}
+
+tr{
+	
+		border-width: 5px;
+		text-align: center;
+		padding: 5px;
+		height: 40px;
+	}
+
+.viewcert{
+	height: 250px;
+}

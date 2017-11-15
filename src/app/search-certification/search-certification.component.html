@@ -1,0 +1,36 @@
+<div class="searchcontainer">
+  <div>
+  <form ngForm name="searchByNameForm" #searchByNameForm="ngForm" (ngSubmit)="getCertificatesListByEmployee(employee)">
+      <div><label>Employee Number/Name</label>
+      <input type="text" name="employee" #employee (ngSelect)=onSlelect()>
+      <input type="submit" value=""  name="search"></div>
+  </form>
+
+<div>
+  <form ngForm name="searchByCertificateForm" #searchByCertificateForm="ngForm" (ngSubmit)="getEmployeesByCertificate(certificationName)">
+  <div><label>Certification Name</label>
+<select id="certificates" required #certificationName>
+    <option value=""></option>
+<option *ngFor="let certificate of certificateNames" value="{{ certificate.code }}">{{ certificate.name }}</option>
+</select>
+ <input type="submit" value=""  name="search"></div>
+</form>
+</div>
+  </div>
+
+  <div>
+  <form ngForm name="searchByYearForm" #searchByYearForm="ngForm" (ngSubmit)="getCertificatesByYear(year)">
+  <div><label>Certification By Year</label>
+<select id="year" class="yeardropdown" required #year>
+    <option value=""></option>
+<option *ngFor="let year of certificateYear" value="{{ year }}">{{ year }}</option>
+</select>
+ <input type="submit" value=""  name="search"></div>
+</form>
+</div>
+  </div>
+  <div>
+    <caption *ngIf= "searchCount==0">No Search Results for {{ searchValue }}</caption>
+    <caption *ngIf= "searchCount>0">{{ searchValue }}</caption>
+    <viewCertificate *ngIf= "searchCount>-1" [certificateList]="certificateList" [searchType]="searchType" [searchCount]="searchCount"></viewCertificate> 
+</div>

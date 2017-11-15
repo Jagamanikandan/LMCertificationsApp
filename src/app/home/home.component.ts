@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home',
@@ -8,10 +9,9 @@ import { HttpModule } from '@angular/http';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  this.router.navigate(['/welcome'])
   }
-
-
 }

@@ -8,23 +8,26 @@ import { HttpModule } from '@angular/http';
 // App Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { AddCertificateComponent } from './add-certificate/add-certificate.component';
 import { ViewCertificateComponent } from './view-certificate/view-certificate.component';
-import { SearchByNameComponent } from './search-by-name/search-by-name.component';
+import { SearchCertificationComponent } from './search-certification/search-certification.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { certficatesService } from './search-by-name/search-by-name.service';
+import { certficatesService, certificate } from './search-certification/search-certification.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
     HomeComponent,
     AboutComponent,
     AddCertificateComponent,
     ViewCertificateComponent,
-    SearchByNameComponent,
+    SearchCertificationComponent,
     WelcomeComponent
   ],
 
@@ -38,6 +41,10 @@ import { certficatesService } from './search-by-name/search-by-name.service';
         component: LoginComponent
       },
       {
+        path: 'signup',
+        component: SignupComponent
+      },
+      {
         path: 'welcome',
         component: WelcomeComponent
       },
@@ -47,7 +54,7 @@ import { certficatesService } from './search-by-name/search-by-name.service';
       },
       {
         path: 'searchByName',
-        component: SearchByNameComponent
+        component: SearchCertificationComponent
       },
       {
         path: 'home',
@@ -60,6 +67,7 @@ import { certficatesService } from './search-by-name/search-by-name.service';
   ],
   providers: [
     certficatesService,
+    certificate
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,140 @@
-<p>
-  view-certificate works!
-</p>
+<div *ngIf= "searchCount>0">
+    <table *ngIf= "searchCount>0">
+        <tr>
+        <th *ngIf='searchType==2'>Employee ID</th>
+        <th *ngIf='searchType==2'>EmployeeName</th>
+        <th *ngIf='searchType==1'>Certificate Id</th>
+        <th *ngIf='searchType==1'>Certificate Name</th>
+        <th *ngIf='searchType==1 || searchType==2'>Date Completed</th>
+        <th *ngIf='searchType==1'>Certification Mode</th>
+        <th *ngIf='searchType==1 || searchType==2'>Score</th>
+        <th *ngIf='searchType==2'>Status</th>
+        </tr>
+      </table>
+<ul>
+  <li  *ngFor="let certificate of certificateList; let index = index" (mouseenter) ="viewCertifiateMode(index)" (mouseleave) ="hideCertifiateMode(index)">
+      <table>
+        <tr>
+          <td *ngIf='searchType==2'>{{ certificate.EmployeeId }}</td>
+          <td *ngIf='searchType==2'>{{ certificate.EmployeeName }}</td>
+          <td *ngIf='searchType==1'>{{ certificate.CertificationId }}</td>
+          <td *ngIf='searchType==1'>{{ getCertificateName(certificate.CertificationId) }}</td>
+          <td *ngIf='searchType==1 || searchType==2'>{{ certificate.CompletedOn }}</td>
+          <td *ngIf='searchType==1'>{{ getCertificateMode(certificate.CertificationMode) }}</td>
+          <td *ngIf='searchType==1 || searchType==2'>{{ certificate.Score }}</td>
+          <td *ngIf='searchType==2'>{{ certificate.Status }}</td>
+        </tr>
+        </table>
+        
+        <div class='viewcert' *ngIf='viewMode[index]==true'>
+            
+              <form ngForm name="viewCertificateForm" #viewCertificateForm="ngForm">
+                
+                <input type="text" 
+        		[(ngModel)]= "certificate._id.$oid" 
+        		name="oid" 
+        		#oid="ngModel"
+                hidden="true" readonly="true">
+                
+                  <label>Employee Number</label>
+                  <label>{{ certificate.EmployeeId }}</label>
+          
+                  <label>Employee Name</label>
+                  <label>{{ certificate.EmployeeName }}</label><br>
+          
+                  <label>Certification Name</label>
+                  <label>{{ getCertificateName(certificate.CertificationId) }}</label>
+          
+                  <label>Mode of Certification</label>
+                  <label>{{ getCertificateMode(certificate.CertificationMode) }}</label><br>
+          
+                  <label>Completed On</label>
+                  <label>{{ certificate.CompletedOn }}</label>
+
+                  <label>Score</label>
+                  <label>{{ certificate.Score }}</label><br>
+                  
+                  <label>Grade</label>
+                  <label>{{ certificate.Grade }}</label>
+                  
+                  <label>Status</label>
+                  <label>{{ certificate.Status }}</label><br>
+
+                  <input type="button" name="btnEdit" value="Edit Details" (click)="editCertificateMode(index)">
+                  <input type="button" name="btnDelete" value="Delete Certificate" (click)="deleteCertificate(certificate._id.$oid)">
+                  </form>          
+          </div>
+
+<div class='editcert' *ngIf='editMode[index]==true'>
+  
+    <form ngForm name="editCertificateForm" #editCertificateForm="ngForm" (ngSubmit)="updateCertificate(editCertificateForm, index)" >
+
+        <input type="text" 
+        		[(ngModel)]= "certificate._id.$oid" 
+        		name="oid" 
+        		#oid="ngModel"
+        		hidden="true" readonly="true">
+
+        <label>Employee Number</label>
+        <input type="text" 
+        		[(ngModel)]= "certificate.EmployeeId" 
+        		name="employeeId" 
+        		#employeeId="ngModel" 
+        		required 
+        		readonly>
+
+        <label>Employee Name</label>
+        <input type="text" 
+        		[(ngModel)]="certificate.EmployeeName" 
+        		name="employeeName" 
+        		#employeeName="ngModel" 
+                required
+                readonly> <br>
+
+        <label>Certification Name</label>
+        <select id="list" 
+        		[(ngModel)] ="certificate.CertificationId" 
+        		name="certificationName" 
+        		#certificationName="ngModel" 
+                required
+                readonly>
+            <option [selected]="certificate.CertificationId" default></option>
+            <option *ngFor="let certName of certificateNameList" value="{{ certName.code }}">{{ certName.name }}</option>
+
+        </select>
+
+        <label>Mode of Certification</label>
+        <select id="list" 
+		        [(ngModel)] = "certificate.CertificationMode" 
+		        name="certificationMode" 
+		        #certificationMode="ngModel" 
+		        required>
+        <option [selected]="certificate.CertificationId == 'certificate.CertificationId'"></option>
+        <option *ngFor="let mode of certificateModeList" value="{{ mode.code }}">{{ mode.name }}</option>
+        </select>  
+         <br>
+
+        <label>Completed On</label>
+        <input type="Date" 
+        		[(ngModel)]="certificate.CompletedOn"
+		        name="completedOn" 
+		        #completedOn="ngModel" 
+		        required> 
+        
+        <label>Score</label>
+        <input type="text" name="score" required #score [(ngModel)]="certificate.Score"> <br>
+        
+        <label>Grade</label>
+        <input type="text" name="grade" required #grade [(ngModel)]="certificate.Grade">
+        
+        <label>Status</label>
+        <input type="text" name="status" required #status [(ngModel)]="certificate.Status"><br>
+        <input type="submit" value="Save"  name="btnSave">
+        <input type="button" value="Reset" name="btnReset" (click)="resetCertificate(index)">
+        <input type="button" name="btnDelete" value="Delete Certificate" (click)="deleteCertificate(certificate._id.$oid)">
+        </form>
+
+</div>
+</li>
+</ul>
+</div> 

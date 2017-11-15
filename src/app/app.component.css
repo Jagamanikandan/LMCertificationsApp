@@ -1,0 +1,11 @@
+.alert-danger{
+	color: red;
+}
+
+input.ng-touched.ng-dirty.ng-invalid{
+	border: 1.5px solid red;
+}
+
+input.ng-valid {
+	border:none;
+}

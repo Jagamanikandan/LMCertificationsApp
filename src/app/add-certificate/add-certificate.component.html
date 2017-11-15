@@ -1,30 +1,75 @@
 <div id="container">
     <h3>Add Certification Details</h3>
-<form ngForm name="addCertificateForm" #addCertificateForm="ngForm" (ngSubmit)="onSubmit(employeeId, employeeName, certificationName, certificationMode, completedOn, score, grade, status)" >
+<!--form ngForm name="addCertificateForm" #addCertificateForm="ngForm" (ngSubmit)="onSubmit(employeeId, employeeName, certificationName, certificationMode, completedOn, score, grade, status)" -->
+<form ngForm name="addCertificateForm" #addCertificateForm="ngForm" (ngSubmit)="saveCertificate(addCertificateForm)" >
+
 <label>Employee Number</label>
-<input type="text" name="empnum" required #employeeId> <br>
+<input type="text" ngModel name="employeeId" #employeeId=ngModel required minlength= "5" maxlength="7" (focusout)="getUsername(employeeId)">
+
 <label>Employee Name</label>
-<input type="text" name="empname" required #employeeName> <br>
+<input type="text" [(ngModel)]="username" name="employeeName" #employeeName=ngModel required minlength= "4"> <br>
+
 <label>Certification Name</label>
-<select id="list" required #certificationName>
+<select id="list" ngModel name="certificationName" #certificationName=ngModel required>
     <option value=""></option>
-<option *ngFor="let certificate of certificateNameList" value="{{ certificate.code }}">{{ certificate.name }}</option>
-</select>  <br>
+<option *ngFor="let certName of certificateNameList" value="{{ certName.code }}">{{ certName.name }}</option>
+</select>
+
 <label>Mode of Certification</label>
-<select id="list" required #certificationMode>
+<select id="list" ngModel name=certificationMode #certificationMode=ngModel required>
 <option value=""></option>
 <option *ngFor="let mode of certificateModeList" value="{{ mode.code }}">{{ mode.name }}</option>
 </select>   <br>
+
 <label>Completed On</label>
-<input type="Date" name="date" required #completedOn> 
+<input type="Date" ngModel name="completedOn"  #completedOn=ngModel required> 
+
 <label>Score</label>
-<input type="text" name="score" required #score> <br>
+<input type="text" ngModel name="score" #score=ngModel> <br>
+
 <label>Grade</label>
-<input type="text" name="grade" required #grade> <br>
+<input type="text" ngModel name="grade"  #grade=ngModel>
+
 <label>Status</label>
-<input type="text" name="status" required #status> <br>
-<br><br>
-<input type="submit" value="Submit"  name="btnSubmit">
+<input type="text" ngModel name="status"  #status=ngModel> <br>
+
+<br>
+<input type="submit" value="Submit" name="btnSubmit" [disabled]="!addCertificateForm.valid">
 <input type="Reset" Value="Reset" name="btnReset">
 </form>
 </div>
+
+<div class='alert alert-danger errors'>
+<caption>Errors/Warnings</caption>
+<div *ngIf=" employeeId.dirty && employeeId.errors?.required">* Employee Number is required</div>
+<div *ngIf=" employeeId.touched && employeeId.errors?.minlength">* Invalid Employee Number</div>
+<div *ngIf=" employeeName.dirty && employeeName.errors?.required">* Employee Name is required</div>
+<div *ngIf=" employeeName.touched && employeeName.errors?.minlength">* Employee Name should be minimun 4 characters</div>
+<div *ngIf=" certificationName.dirty && certificationName.errors?.required">* Certification Name is required</div>
+<div *ngIf=" certificationName.dirty && addCertificateForm.errors?.valid">* Certification Name is required</div>
+</div>
+
+
+<div>
+<table *ngIf= "recentCertificateCount>0">
+      <caption>Recently Added Certifications</caption>
+  <tr>
+  <th>Certificate Name</th>
+  <th>Date Completed</th>
+  <th>Certification Mode</th>
+  <th>Score</th>
+  <th>Grade</th>
+  <th>Status</th>
+  <th>Edit Details</th>
+  </tr>
+  <tr *ngFor="let list of certificateList">
+  <td>{{ getCertificateName(list.CertificationId) }}</td>
+  <td>{{ list.CompletedOn }}</td>
+  <td>{{ getCertificarteMode(list.CertificationMode) }}</td>
+  <td>{{ list.Score }}</td>
+  <td>{{ list.Grade }}</td>
+  <td>{{ list.Status }}</td>
+  <td><input type="button" name="edit" value="Edit"></td>
+  </tr>
+  </table>
+  </div> 

@@ -10,7 +10,7 @@ export class certficatesService {
 
   certificateModeId = [
     {'code': '10', 'name': 'External'},
-    {'code': '11', 'name': 'Interal'},
+    {'code': '11', 'name': 'Internal'},
     {'code': '12', 'name': 'iON Platform'}
   ];
 
